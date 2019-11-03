@@ -1,0 +1,28 @@
+{
+  "name": "Glicko Simulator",
+  "version": "1.0.0",
+  "description": "Simulates 25 players with random Glicko ratings and ranks them accordingly.",
+  "main": "js/script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jeffery Tang",
+  "license": "ISC",
+  "devDependencies": {
+    "csscomb": "^3.1.7",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-beautify": "^2.0.0",
+    "gulp-clean-css": "^2.0.11",
+    "gulp-connect": "^5.0.0",
+    "gulp-csscomb": "^3.0.7",
+    "gulp-prettify": "^0.4.0",
+    "gulp-pug": "^3.0.3",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^1.5.4"
+  },
+  "dependencies": {
+    "gulp-connect": "^5.0.0"
+  }
+}

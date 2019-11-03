@@ -1,0 +1,106 @@
+/***** Imports and Variables *****/
+@import 'reference';
+
+/***** General *****/
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: Arial, sans-serif;
+}
+
+header, main, footer {
+
+}
+
+/***** Header *****/
+
+header {
+
+}
+
+/***** Main *****/
+
+main {
+    h1 {
+        text-align: center;
+    }
+    table {
+        border-collapse: collapse;
+        margin: 30px auto;
+        th, td {
+            border: 1px solid;
+            padding: 5px;
+        }
+    }
+    .red {
+        background-color: red;
+    }
+    .green {
+        background-color: green;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none; /* display: none; <- Crashes Chrome on hover */
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+    /* From W3Schools Accordion */
+    .panel {
+        p.block {
+            display: block;
+        }
+        padding: 0 18px;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        p, ol, ul {
+            display: block;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 150%;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+    button.accordion {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        text-align: left;
+        border: none;
+        outline: none;
+        transition: 0.4s;
+    }
+    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+    button.accordion.active, button.accordion:hover {
+        background-color: #ddd;
+    }
+
+    /* Style the accordion panel. Note: hidden by default */
+    button.accordion:after {
+        content: '\02795'; /* Unicode character for "plus" sign (+) */
+        font-size: 13px;
+        color: #777;
+        float: right;
+        margin-left: 5px;
+    }
+
+    button.accordion.active:after {
+        content: '\2796'; /* Unicode character for "minus" sign (-) */
+    }
+}
+
+/***** Footer *****/
+
+footer {
+    text-align: center;
+    padding-bottom: 20px;
+}

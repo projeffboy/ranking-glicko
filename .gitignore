@@ -1,0 +1,11 @@
+/node_modules/*
+!/node_modules/gulp-rename
+!/node_modules/gulp-pug
+!/node_modules/gulp-prettify
+!/node_modules/gulp-sass
+!/node_modules/gulp-autoprefixer
+!/node_modules/gulp-csscomb
+!/node_modules/gulp-clean-css
+!/node_modules/gulp-beautify
+!/node_modules/gulp-uglify
+.DS_Store

@@ -1,0 +1,21 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        // CSS Libraries
+        link(rel='stylesheet', type='text/css', href='src/library/normalize.css')
+        link(rel='stylesheet', type='text/css', href='src/min-css/style.min.css')
+        // Javascript Libraries
+        script(src='src/library/jquery.js', defer)
+        script(src='src/library/jquery-color.js', defer)
+        script(src='src/library/jquery-easing.js', defer)
+        // User CSS and JS
+        block headFiles
+    body
+        header
+            h1
+        main
+            block mainContent
+        footer Copyright ©
+            span#year
+            | Glicko Simulator By Jeffery Tang.
