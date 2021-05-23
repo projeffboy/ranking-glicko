@@ -14,17 +14,17 @@ mixin mainContent
     .panel
         p
             strong Player A
-        label.calc-label Rating
+        label.calc-label(for='ratingA') Rating
         input#ratingA(type='number')
         br
-        label.calc-label Deviation
+        label.calc-label(for='deviationA') Deviation
         input#deviationA(type='number')
         p
             strong Player B
-        label.calc-label Rating
+        label.calc-label(for='ratingB') Rating
         input#ratingB(type='number')
         br
-        label.calc-label Deviation
+        label.calc-label(for='deviationB') Deviation
         input#deviationB(type='number')
         br
         br
