@@ -1,12 +1,35 @@
-extends template.pug
-block headFiles
-    title Glicko Simulator
+mixin headFiles
+    title Ranking Glicko
     link(rel='stylesheet', href='src/library/mathquill.css')
     script(src='https://code.jquery.com/jquery-3.1.1.min.js', integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=', crossorigin='anonymous')
     script(src='src/library/mathquill.js')
     script(src='src/js/script.js', defer)
-block mainContent
-    h1 The Glicko Simulator
+    
+mixin mainContent
+    h1.title The Glicko Simulator
+    h6.credit Based off of
+        | 
+        a(href='https://www.smogon.com/forums/threads/everything-you-ever-wanted-to-know-about-ratings.3487422/') this Smogon article by Antar
+    button.accordion 1v1 Glicko calculator
+    .panel
+        p
+            strong Player A
+        label.calc-label Rating
+        input#ratingA(type='number')
+        br
+        label.calc-label Deviation
+        input#deviationA(type='number')
+        p
+            strong Player B
+        label.calc-label Rating
+        input#ratingB(type='number')
+        br
+        label.calc-label Deviation
+        input#deviationB(type='number')
+        br
+        br
+        input#calc(type='button', value='Calculate')
+        p#chanceA Yawn.
     button.accordion What is Glicko?
     .panel
         p Most game rating systems determine, using a value, how good a player is.
@@ -17,9 +40,9 @@ block mainContent
         p The two values above make up the <strong>Glicko rating</strong>. In fact, a player's Glicko rating can be represented as a normal distribution curve:
         img(src='res/img/normal-distribution.png', alt='normal distribution')
         p Rating would be the mean (<em>μ</em>), and rating deviation would be two standard deviations from the mean (<em>μ ± 2σ</em>).
-    button.accordion More Information About Glicko
+    button.accordion Who invented Glicko?
     .panel
-        p Glicko was invented by Harvard professor Mark E. Glickman in 1995. Since I present a very brief and limited view of how Glicko works, you should check out his <a href='http://www.glicko.net/glicko/glicko.pdf'>research paper</a> for more information. Likewise, you can check out the <a href='https://en.wikipedia.org/wiki/Glicko_rating_system'>Wikipedia page</a> too instead.
+        p Glicko was invented by Harvard professor Mark E. Glickman in 1995. This is his <a href='http://www.glicko.net/glicko/glicko.pdf'>research paper</a>. He also invented <a href='http://www.glicko.net/glicko/glicko2.pdf'>Glicko-2</a>, which I don't think I talk about.
     button.accordion Is Player A or B Better?
     .panel
         p Elo is an example of a game system that uses just one value to determine the rating of a player. This means that comparing two players is very easy – the person with the higher rating is better, of course.
@@ -45,14 +68,14 @@ block mainContent
     .panel
         p If you can compare the two player's Glicko ratings to see who's better, that means you can compare every player with every other player to create a leaderboard, or ranking system.
         p Unfortunately, comparing each player with every other player can be very computationally intensive, especially if there is a lot of players involved.
-        p In the table below, I've created 250 fake players, each with a randomly generated rating between 1000 and 2000, since 1500 is usually the rating for a new player. Meanwhile, the rating deviation is randomly generated to have a value between 30 and 100, since according to Glicko, any value outside of that range is considered either unrealistically accurate or too unreliable to be used.
+        p In the table below, I've created 250 fake players, each with a randomly generated rating between 1000 and 2000, since 1500 is usually the rating for a new player. Meanwhile, the rating deviation is randomly generated to have a value between 30 and 100, since according to Glickman, any value outside of that range is considered either unrealistically accurate or too unreliable to be used.
         p Here is a description of what some of the columns mean:
         ul
-            li <strong>Average Expected Chance</strong> – the average probability of a particular player winning against every other ranked player.
+            li <strong>Average Expected Chance</strong> – the average probability of a particular player winning against every other ranked player. Remember that this is the most accurate but requires too much computing.
             li Mean – the probability that a player would win against an imaginary player with the average Glicko rating of all the ranked players.
             li Median – the probability that a player would win against the median player. In this case, it would be against the 125th player.
-            li New Player – the average probability that a player would would win against a new player with a rating of 1500 and a rating deviation of 350.
-        p The fourth column is what determines the ranking of the players. The fifth to seventh columns are close approximations (cells colored red underank a player while cells colored green overank a player).
+            li New Player – the average probability that a player would would win against a new player with a rating of 1500 and a rating deviation of 350. This is the one that the Smogon article by Antar suggested.
+        p Below, the "Average Expected Chance" column is what determines the ranking of the players. The columns to the right of it are close approximations (cells colored red underank a player while cells colored green overank a player).
     table
         tbody#rankings
             tr
@@ -67,3 +90,25 @@ block mainContent
             tr
                 for th in ['Test Player', 'Rating', 'Rating Deviation', 'Accuracy', 'Mean of Change in Ranking', 'Standard Deviation of Change in Ranking']
                     th= th
+
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        // CSS Libraries
+        link(rel='stylesheet', type='text/css', href='src/library/normalize.css')
+        link(rel='stylesheet', type='text/css', href='src/min-css/style.min.css')
+        // Javascript Libraries
+        script(src='src/library/jquery.js', defer)
+        script(src='src/library/jquery-color.js', defer)
+        script(src='src/library/jquery-easing.js', defer)
+        // User CSS and JS
+        +headFiles
+    body
+        header
+            h1
+        main
+            +mainContent
+        footer Copyright ©
+            span#year
+            | Glicko Simulator by Jeffery Tang.

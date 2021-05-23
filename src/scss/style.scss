@@ -11,22 +11,26 @@ html, body {
     font-family: Arial, sans-serif;
 }
 
-header, main, footer {
-
-}
-
-/***** Header *****/
-
-header {
-
-}
-
 /***** Main *****/
 
 main {
-    h1 {
+    .title, .credit {
         text-align: center;
     }
+
+    .title {
+        margin-bottom: 10px;
+    }
+
+    .credit {
+        margin-top: 0;
+    }
+
+    .calc-label {
+        width: 75px;
+        display: inline-block;
+    }
+
     table {
         border-collapse: collapse;
         margin: 30px auto;
@@ -66,6 +70,7 @@ main {
         img {
             display: block;
             margin: 0 auto;
+            max-width: 100%;
         }
     }
     button.accordion {

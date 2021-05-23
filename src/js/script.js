@@ -1,10 +1,19 @@
-{
+{    
     'use strict'
 
-    /* Global letiables */
+    /* Calculator */
+    calc.onclick = function() {
+        let eA = glickoProb(
+            ratingA.value, deviationA.value, ratingB.value, deviationB.value
+        )
+        let percentage = (eA * 100).toFixed(2)
+        chanceA.innerHTML = `Player A has a ${percentage}% chance of beating player B.`
+    }
+
+    /* Global Variables */
     let i = 0
     let g = {}
-    let players ={}
+    let players = {}
     let acc = document.getElementsByClassName('accordion')
     let MQ = MathQuill.getInterface(2)
     let SM = document.getElementsByClassName('SM') // SM stands for Static Math
@@ -148,8 +157,7 @@
                     <td>${players['p' + num].winRate1.toFixed(4)}</td>
                     <td class='${classNames[0]}'>${players['p' + num].winRate2.toFixed(4)}</td>
                     <td class='${classNames[1]}'>${players['p' + num].winRate3.toFixed(4)}</td>
-                    <td class='${classNames[2]}'>${players['p'
-                    + num].winRate4.toFixed(4)}</td>
+                    <td class='${classNames[2]}'>${players['p' + num].winRate4.toFixed(4)}</td>
                 </tr>
             `
         }
